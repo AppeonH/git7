@@ -1,0 +1,174 @@
+﻿$PBExportHeader$m_main.srm
+forward
+global type m_main from menu
+end type
+type m_argumentposition from menu within m_main
+end type
+type m_1position from menu within m_argumentposition
+end type
+type m_2datawindowbuttonclickedeventinheaderba from menu within m_argumentposition
+end type
+type m_3datawindowbuttonclickedeventindetailba from menu within m_argumentposition
+end type
+type m_4datawindowbuttonclickedeventinsummaryb from menu within m_argumentposition
+end type
+type m_5datawindowbuttonclickedeventinfooterba from menu within m_argumentposition
+end type
+type m_argumentposition from menu within m_main
+m_1position m_1position
+m_2datawindowbuttonclickedeventinheaderba m_2datawindowbuttonclickedeventinheaderba
+m_3datawindowbuttonclickedeventindetailba m_3datawindowbuttonclickedeventindetailba
+m_4datawindowbuttonclickedeventinsummaryb m_4datawindowbuttonclickedeventinsummaryb
+m_5datawindowbuttonclickedeventinfooterba m_5datawindowbuttonclickedeventinfooterba
+end type
+type m_exit from menu within m_main
+end type
+global type m_main from menu
+m_argumentposition m_argumentposition
+m_exit m_exit
+end type
+end forward
+
+global type m_main from menu
+m_argumentposition m_argumentposition
+m_exit m_exit
+end type
+global m_main m_main
+
+on m_main.create
+m_main=this
+call super::create
+this.m_argumentposition=create m_argumentposition
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_argumentposition
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_main.destroy
+call super::destroy
+destroy(this.m_argumentposition)
+destroy(this.m_exit)
+end on
+
+type m_argumentposition from menu within m_main
+m_1position m_1position
+m_2datawindowbuttonclickedeventinheaderba m_2datawindowbuttonclickedeventinheaderba
+m_3datawindowbuttonclickedeventindetailba m_3datawindowbuttonclickedeventindetailba
+m_4datawindowbuttonclickedeventinsummaryb m_4datawindowbuttonclickedeventinsummaryb
+m_5datawindowbuttonclickedeventinfooterba m_5datawindowbuttonclickedeventinfooterba
+end type
+
+on m_argumentposition.create
+call super::create
+this.text = "Test Contents"
+this.m_1position=create m_1position
+this.m_2datawindowbuttonclickedeventinheaderba=create m_2datawindowbuttonclickedeventinheaderba
+this.m_3datawindowbuttonclickedeventindetailba=create m_3datawindowbuttonclickedeventindetailba
+this.m_4datawindowbuttonclickedeventinsummaryb=create m_4datawindowbuttonclickedeventinsummaryb
+this.m_5datawindowbuttonclickedeventinfooterba=create m_5datawindowbuttonclickedeventinfooterba
+this.Item[UpperBound(this.Item)+1]=this.m_1position
+this.Item[UpperBound(this.Item)+1]=this.m_2datawindowbuttonclickedeventinheaderba
+this.Item[UpperBound(this.Item)+1]=this.m_3datawindowbuttonclickedeventindetailba
+this.Item[UpperBound(this.Item)+1]=this.m_4datawindowbuttonclickedeventinsummaryb
+this.Item[UpperBound(this.Item)+1]=this.m_5datawindowbuttonclickedeventinfooterba
+end on
+
+on m_argumentposition.destroy
+call super::destroy
+destroy(this.m_1position)
+destroy(this.m_2datawindowbuttonclickedeventinheaderba)
+destroy(this.m_3datawindowbuttonclickedeventindetailba)
+destroy(this.m_4datawindowbuttonclickedeventinsummaryb)
+destroy(this.m_5datawindowbuttonclickedeventinfooterba)
+end on
+
+type m_1position from menu within m_argumentposition
+end type
+
+on m_1position.create
+call super::create
+this.text = "1. DataWindow ButtonClicked Normal Event"
+end on
+
+on m_1position.destroy
+call super::destroy
+end on
+
+event clicked;opensheet(W_DCE001W01_ButtonClicked, parentwindow, 1, Original!)
+end event
+
+type m_2datawindowbuttonclickedeventinheaderba from menu within m_argumentposition
+end type
+
+event clicked;opensheet(W_DCE001W02_ActionHeader, parentwindow, 1, Original!)
+end event
+
+on m_2datawindowbuttonclickedeventinheaderba.create
+call super::create
+this.text = "2. DataWindow ButtonClicked Event In Header Band"
+end on
+
+on m_2datawindowbuttonclickedeventinheaderba.destroy
+call super::destroy
+end on
+
+type m_3datawindowbuttonclickedeventindetailba from menu within m_argumentposition
+end type
+
+event clicked;opensheet(W_DCE001W03_ActionDetail, parentwindow, 1, Original!)
+end event
+
+on m_3datawindowbuttonclickedeventindetailba.create
+call super::create
+this.text = "3. DataWindow ButtonClicked Event In Detail Band"
+end on
+
+on m_3datawindowbuttonclickedeventindetailba.destroy
+call super::destroy
+end on
+
+type m_4datawindowbuttonclickedeventinsummaryb from menu within m_argumentposition
+end type
+
+event clicked;opensheet(W_DCE001W04_ActionSummary, parentwindow, 1, Original!)
+end event
+
+on m_4datawindowbuttonclickedeventinsummaryb.create
+call super::create
+this.text = "4. DataWindow ButtonClicked Event In Summary Band"
+end on
+
+on m_4datawindowbuttonclickedeventinsummaryb.destroy
+call super::destroy
+end on
+
+type m_5datawindowbuttonclickedeventinfooterba from menu within m_argumentposition
+end type
+
+event clicked;opensheet(W_DCE001W05_ActionFooter, parentwindow, 1, Original!)
+end event
+
+on m_5datawindowbuttonclickedeventinfooterba.create
+call super::create
+this.text = "5. DataWindow ButtonClicked Event In Footer Band"
+end on
+
+on m_5datawindowbuttonclickedeventinfooterba.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_main
+end type
+
+event clicked;Close(ParentWindow)
+end event
+
+on m_exit.create
+call super::create
+this.text = "Exit"
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+

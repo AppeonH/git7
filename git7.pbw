@@ -1,3 +1,8 @@
 Save Format v3.0(19990112)
 @begin Targets
+ 0 "dce003_clicked.pbt";
+ 1 "dce001_buttonclicked.pbt";
+ 2 "dce002_buttonclicking.pbt";
 @end;
+DefaultTarget "dce002_buttonclicking.pbt";
+DefaultRemoteTarget "dce002_buttonclicking.pbt";
